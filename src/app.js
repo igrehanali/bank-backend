@@ -1,6 +1,7 @@
 import express from "express";
 import authRoutes from "./routes/auth.routes.js";
 import accountRouter from "./routes/accounts.route.js";
+import transactionRouter from "./routes/transaction.route.js";
 import cookieParser from "cookie-parser";
 
 // swagger setup
@@ -17,4 +18,6 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/accounts", accountRouter);
+app.use("/api/transactions", transactionRouter);
+
 export default app;
