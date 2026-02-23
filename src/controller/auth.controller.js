@@ -19,7 +19,6 @@ async function userRegister(req, res) {
     });
   }
 
-  // remove `new` and add `await`
   const newUser = await UserModel.create({
     email,
     name,
@@ -39,6 +38,7 @@ async function userRegister(req, res) {
   res.cookie("token", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
   });
 
   res.status(201).json({

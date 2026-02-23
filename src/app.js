@@ -1,5 +1,6 @@
 import express from "express";
 import authRoutes from "./routes/auth.routes.js";
+import accountRouter from "./routes/accounts.route.js";
 import cookieParser from "cookie-parser";
 
 // swagger setup
@@ -15,5 +16,5 @@ app.use(cookieParser());
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use("/api/auth", authRoutes);
-
+app.use("/api/accounts", accountRouter);
 export default app;
